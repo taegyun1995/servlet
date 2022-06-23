@@ -19,9 +19,6 @@ public class ServletTest02Controller extends HttpServlet{
 		PrintWriter out = response.getWriter();
 		
 		Date now = new Date();
-		
-//		SimpleDateFormat formatter = new SimpleDateFormat("hh시 mm분 ss초");
-//		String formatDate = formatter.format(now);
 		String formatDate2 = new SimpleDateFormat("hh시 mm분 ss초").format(now);
 		
 		out.println("현재 시간은 " + formatDate2 + "입니다.");

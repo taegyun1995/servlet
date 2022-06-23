@@ -20,7 +20,6 @@
 		for(int i = 0; i < foodArray.length; i++) {
 			foodString += foodArray[i] + " ";
 		}
-	
 	%>
 	
 	<table>
