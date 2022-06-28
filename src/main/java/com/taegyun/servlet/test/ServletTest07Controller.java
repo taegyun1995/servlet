@@ -27,6 +27,7 @@ public class ServletTest07Controller extends HttpServlet {
 		
 		String str = address.contains("서울시") ? address + "로 배달 준비중" : "배달 불가 지역입니다";
 		out.println(str);
+		
 //		if(address.contains("서울시")) {
 //			out.println("<h3>" + address + "로 배달 준비중</h3>");
 //		} else {
