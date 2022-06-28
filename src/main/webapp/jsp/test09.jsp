@@ -17,6 +17,7 @@
 <body>
 
 	<div class="container">
+	<div class="display-4">
 		<h1>오늘부터 1일</h1>
 	<% for(int i = 1; i <= 10; i++) { %>
 	
@@ -30,9 +31,10 @@
 		date = simpleDate.format(today.getTime());
 		%>
 		
-		<%= i %>00일 : <%= date %> <br>
+		<%= i %>00일 : <span class="text-danger"><%= date %></span> <br>
 		
 	<% } %>
+	</div>
 	</div>
 	
 </body>
