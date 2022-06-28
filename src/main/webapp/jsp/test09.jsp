@@ -15,27 +15,23 @@
 
 </head>
 <body>
-
 	<div class="container">
-	<div class="display-4">
 		<h1>오늘부터 1일</h1>
-	<% for(int i = 1; i <= 10; i++) { %>
-	
-		<% Calendar today = Calendar.getInstance();
+		<div class="display-4">
+			<% for(int i = 1; i <= 10; i++) { %>
 			
-		SimpleDateFormat simpleDate = new SimpleDateFormat("yyyy년M월d일"); 
-		String date = simpleDate.format(today.getTime());
+				<% Calendar today = Calendar.getInstance();
+					
+				SimpleDateFormat simpleDate = new SimpleDateFormat("yyyy년 M월 d일"); 
+						
+				today.add(Calendar.DATE, (i * 100) - 1);
+					
+				String date = simpleDate.format(today.getTime()); %>
 				
-		today.add(Calendar.DATE, (i * 100) - 1);
-			
-		date = simpleDate.format(today.getTime());
-		%>
-		
-		<%= i %>00일 : <span class="text-danger"><%= date %></span> <br>
-		
-	<% } %>
+				<%= i %>00일 : <span class="text-danger"> <%= date %> </span> <br>
+				
+			<% } %>
+		</div>
 	</div>
-	</div>
-	
 </body>
 </html>
