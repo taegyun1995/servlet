@@ -38,12 +38,14 @@
 			<% while(resultSet.next()) { %>
 				<tr>
 					<td><%= resultSet.getString("name") %></td>
-					<td><a href="<%= resultSet.getString("url")%>"><%= resultSet.getString("url") %></a></td>
+					<td><a target="_blank" href="<%= resultSet.getString("url")%>"><%= resultSet.getString("url") %></a></td>
 					<td><a href="/db/test02/delete?id=<%= resultSet.getInt("id") %>">삭제</a></td>
 				</tr>
 			<% } %>
 			</tbody>
 		</table>
+		
+		<button class="btn btn-success">추가하기</button>
 	</div>
 
 </body>

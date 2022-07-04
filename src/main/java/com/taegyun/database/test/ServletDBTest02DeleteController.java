@@ -25,7 +25,7 @@ public class ServletDBTest02DeleteController extends HttpServlet {
 		mysqlService.update(query);
 		
 		try {
-			response.sendRedirect("/db/test02.jsp");
+			response.sendRedirect("/db/test02/test02.jsp");
 		} catch (IOException e) {
 			// TODO Auto-generated catch block
 			e.printStackTrace();

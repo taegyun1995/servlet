@@ -13,7 +13,7 @@ import com.taegyun.common.MysqlService;
 public class ServletDBTest02InsertController extends HttpServlet {
 	
 	@Override
-	public void doGet(HttpServletRequest request, HttpServletResponse response) {
+	public void doPost(HttpServletRequest request, HttpServletResponse response) {
 		MysqlService mysqlService = MysqlService.getInstance();
 		mysqlService.connect();
 		
@@ -28,7 +28,7 @@ public class ServletDBTest02InsertController extends HttpServlet {
 		mysqlService.update(query);
 		
 		try {
-			response.sendRedirect("/db/test02.jsp");
+			response.sendRedirect("/db/test02/test02.jsp");
 		} catch (IOException e) {
 			// TODO Auto-generated catch block
 			e.printStackTrace();
