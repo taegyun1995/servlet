@@ -1,0 +1,34 @@
+@charset "UTF-8";
+
+#wrap{
+	margin:auto;
+}
+
+header {
+	height:100px;
+}
+
+header > .logo {
+	height:100px;
+}
+
+header > .search {
+	height:100px;
+}
+
+.main-menu {
+	height:40px;
+	font-weight:bold;
+}
+
+footer {
+	height:60px;
+}
+
+.singer {
+	font-weight:bold;
+}
+
+.music-info {
+	font-size:14px;
+}

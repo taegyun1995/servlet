@@ -5,71 +5,68 @@
 <html>
 <head>
 <meta charset="UTF-8">
-<title>멜론</title>
+<title>멜롱</title>
 <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
 
   <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>
   <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js" integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q" crossorigin="anonymous"></script>
   <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous"></script>
 
+	<link rel="stylesheet" href="style.css" type="text/css">
 </head>
 <body>
-	<%
-	  	Map<String, Object> artistInfo = new HashMap<>();
-	    artistInfo.put("name", "아이유");
-	    artistInfo.put("debute", 2008);
-	    artistInfo.put("agency", "EDAM엔터테인먼트");
-	    artistInfo.put("photo", "http://image.genie.co.kr/Y/IMAGE/IMG_ALBUM/081/867/444/81867444_1616662460652_1_600x600.JPG");
-	%>
 	
-	<div class="container">
+	<%@ include file="data.jsp" %>
 	
-		<header>
-			<div class="d-flex">
-				<h1 class="text-success">Melong</h1>
-				<input type="text"> <input type="submit" value="검색">
-			</div>
-		</header>
-	
-		<nav>
-			<ul class="nav">
-				<li class="nav-item"> <a href="#" class="nav-link"> 멜롱챠트 </a> </li>
-				<li class="nav-item"> <a href="#" class="nav-link"> 최신음악 </a> </li>
-				<li class="nav-item"> <a href="#" class="nav-link"> 장르음악 </a> </li>
-				<li class="nav-item"> <a href="#" class="nav-link"> 멜롱DJ </a> </li>
-				<li class="nav-item"> <a href="#" class="nav-link"> 뮤직어워드 </a> </li>
-			</ul>
-		</nav>
-	
-		<section>
-			<div class="d-flex">
-				<div>
-					<img width="200" src="<%= artistInfo.get("photo") %>"> 
+	<form method="get" action="/jspTemplete/test02/test02_2.jsp">
+		<div id="wrap" class="container">
+		
+			<jsp:include page="header.jsp" />
+			<jsp:include page="nav.jsp" />
+		
+			<section class="contents">
+				<div class="artist d-flex border border-success p-3">
+					<div class="image">
+						<img width="150" src="<%= artistInfo.get("photo") %>"> 
+					</div>
+					
+					<div class="info ml-3">
+						<h3> <%= artistInfo.get("name") %> </h3> 
+						<div> <%= artistInfo.get("agency") %> </div>
+						<div> <%= artistInfo.get("debute") %> 데뷔 </div> 
+					</div>
+				</div>
+		
+				<div class="music-list mt-3">
+			 	<h3> 곡 목록 </h3>
+			 	
+			 	<table class="table table-sm text-center">
+			 		<thead>
+			 			<tr>
+			 				<th>no</th>
+			 				<th>제목</th>
+			 				<th>앨범</th>
+			 			</tr>
+			 		</thead>
+			 		<tbody>
+						<% for(Map<String,Object> info : musicList) { 
+			 				int id = (Integer)info.get("id"); %>
+				 			<tr>
+				 				<td><%= info.get("id") %></td>
+				 				<td> <a href="/jspTemplete/test02/test02_2.jsp?page=<%= id %>"> <%= info.get("title") %> </a> </td>
+				 				<td><%= info.get("album") %></td>
+				 			</tr>
+			 			<% } %>
+			 		</tbody>
+			 	</table>
 				</div>
 				
-				<div>
-					<%= artistInfo.get("name") %> <br>
-					<%= artistInfo.get("agency") %> <br>
-					<%= artistInfo.get("debute") %> 데뷔
-				</div>
+				</section>		
 				
-			</div>
-		</section>
+			<div class="pt-4"> <hr> </div>
+			<jsp:include page="footer.jsp" />
 		
-		<footer>
-		
-		</footer>
-	
-	</div>
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
+		</div>
+	</form>
 </body>
 </html>
